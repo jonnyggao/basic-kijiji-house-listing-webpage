@@ -1,0 +1,32 @@
+.list-group {
+    max-height: 500px;
+    margin-bottom: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.panel>.panel-heading {
+    background-image: none;
+    background-color: whitesmoke;
+    color: black;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.page-header h1 {
+    text-align: center;
+}

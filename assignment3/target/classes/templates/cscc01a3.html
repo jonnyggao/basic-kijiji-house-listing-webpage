@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/layout.css" th:href="@{/css/layout.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="page-header">
+            <h1>CSCC01 A3 Kijiji House Listings Geocoded Into Google Maps</h1>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div id="map"></div>
+            </div>
+
+        </div>
+
+
+        <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+        <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFNwBzIYLGe-3658gf2q20HY36gzDzAfc&callback=initMap">
+            </script>
+
+
+        <!-- Script for adding markers to map -->
+        <script th:inline="javascript">
+            var map;
+            function initMap() {
+                // Map options
+                var options = {
+                    zoom: 12,
+                    center: { lat: 43.6532, lng: -79.3832 }
+                }
+
+                // New map
+                map = new google.maps.Map(document.getElementById('map'), options);
+
+                // Add markers
+                /*<![CDATA[*/
+
+                var listing = /*[[${allListings}]]*/ "the house listings";
+                for (var i = 0; i < listing.length; i++) {
+                    addMarker(listing[i]);
+                }
+
+                /*]]>*/
+
+
+
+
+            }
+
+            function addMarker(element) {
+                var title = element.title;
+                var description = element.description;
+                var address = element.address;
+                var link = element.link;
+                var price = element.price;
+                var lat = element.lat;
+                var lng = element.lng;
+
+                var contentFormatted = "<h2>";
+                contentFormatted += title;
+                contentFormatted += "</h2><p>";
+                contentFormatted += address;
+                contentFormatted += "</p><p>";
+                contentFormatted += description;
+                contentFormatted += "</p><p class='price'>";
+                contentFormatted += price;
+                contentFormatted += "</p><a class='btn btn-primary' role='button' target='_blank' href='";
+                contentFormatted += link;
+                contentFormatted += "'>View Listing</a>";
+
+
+                var marker = new google.maps.Marker({
+                    position: { lat, lng },
+                    map: map
+                });
+
+                var infoWindow = new google.maps.InfoWindow({
+                    content: contentFormatted
+                });
+
+                marker.addListener("click", function openWindow() {
+                    infoWindow.open(map, marker);
+                });
+
+            }
+        </script>
+
+
+    </div>
+</body>
+
+</html>
