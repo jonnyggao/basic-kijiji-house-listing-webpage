@@ -4,5 +4,5 @@ This application is a basic web page that displays Google Maps with markers of K
 
 
 ### Opening the application
-![alt text](https://github.com/gtlim414/basic-kijiji-house-listing-webpage/tree/master/screenshots/web_page.png "Logo Title Text 1")
+![screenshots](web_page.png)
 
