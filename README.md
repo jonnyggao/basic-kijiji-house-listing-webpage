@@ -3,6 +3,11 @@ This application is a basic web page that displays Google Maps with markers of K
 
 
 
-### Opening the application
+### Opening The Application
 ![screenshot](/screenshots/web_page.png)
 
+### Clicking On A Marker
+![screenshot](/screenshots/marker_clicked.png)
+
+### Opening The Link To The Specific Listing
+![screenshot](/screenshots/link_opened.png)
