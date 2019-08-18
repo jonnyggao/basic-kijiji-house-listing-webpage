@@ -4,5 +4,5 @@ This application is a basic web page that displays Google Maps with markers of K
 
 
 ### Opening the application
-![screenshots](web_page.png)
+![screenshot](/screenshots/web_page.png)
 
